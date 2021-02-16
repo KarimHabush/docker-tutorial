@@ -1,6 +1,5 @@
   
 import mysql.connector
-import sys
 
 db = mysql.connector.connect(
   host="db",
