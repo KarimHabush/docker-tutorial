@@ -1,8 +1,8 @@
 from flask import Flask, request, Response
 import json 
 
-from db_connection import get_students, add_student, delete_student, update_student
-from validation import validate
+from .db_connection import get_students, add_student, delete_student, update_student
+from .validation import validate
 
 
 app = Flask(__name__)
