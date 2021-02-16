@@ -1,5 +1,10 @@
 from flask import Flask, request, Response
 import json 
+import os
+import sys
+
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
 
 from .db_connection import get_students, add_student, delete_student, update_student
 from .validation import validate
