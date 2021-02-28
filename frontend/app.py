@@ -6,9 +6,11 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     msg=""
+    students=[]
     try :
         r = requests.get(
             'http://0.0.0.0:5000/students')
+        students= r.json()['result']
     except requests.exceptions.ConnectionError:
         print("Not working! again!!!")
 
@@ -16,7 +18,7 @@ def homepage():
         msg="L'opération a échoué, vérifiez vos données et réessayez!"
     elif request.args.get("status")=="success":
         msg="L'opération a bien été executé!"
-    return render_template('./templates/index.html',students=r.json()['result'],messages=msg)
+    return render_template('./templates/index.html',students=students,messages=msg)
    
 
 @app.route('/delete',methods=['POST'])
