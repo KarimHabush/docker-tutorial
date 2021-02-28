@@ -15,3 +15,11 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
+  frontend:
+    build ./frontend
+    links:
+      - db
+      - app
+    ports:
+      - "3000:3000"
+     
