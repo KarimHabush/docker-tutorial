@@ -6,9 +6,12 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     msg=""
-    r = requests.get(
-        'http://0.0.0.0:5000/students')
-    print(r.json())
+    try :
+        r = requests.get(
+            'http://0.0.0.0:5000/students')
+    except requests.exceptions.ConnectionError:
+        r.status_code = "Connection refused"
+
     if request.args.get("status")=="failure":
         msg="L'opération a échoué, vérifiez vos données et réessayez!"
     elif request.args.get("status")=="success":
