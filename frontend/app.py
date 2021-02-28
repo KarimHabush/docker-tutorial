@@ -9,7 +9,7 @@ def homepage():
     students=[]
     try :
         r = requests.get(
-            'http://0.0.0.0:5000/students')
+            'http://app:5000/students')
         students= r.json()['result']
     except requests.exceptions.ConnectionError:
         print("Not working! again!!!")
@@ -28,7 +28,7 @@ def delete():
     } 
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-    res = requests.post('http://localhost:5000/students/delete', json=data, headers=headers)
+    res = requests.post('http://app:5000/students/delete', json=data, headers=headers)
     return redirect(url_for(".homepage",status=json.loads(res.text)['status']))
 
 @app.route('/update',methods=['POST'])
@@ -40,7 +40,7 @@ def update():
     } 
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-    res = requests.post('http://localhost:5000/students/update', json=data, headers=headers)
+    res = requests.post('http://app:5000/students/update', json=data, headers=headers)
     return redirect(url_for(".homepage",status=json.loads(res.text)['status']))
 
 @app.route('/add',methods=['POST'])
@@ -51,7 +51,7 @@ def add():
     } 
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-    res = requests.post('http://localhost:5000/students/add', json=data, headers=headers)
+    res = requests.post('http://app:5000/students/add', json=data, headers=headers)
     print(res.text)
     return redirect(url_for(".homepage",status=json.loads(res.text)['status']))
 
