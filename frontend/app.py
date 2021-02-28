@@ -10,7 +10,7 @@ def homepage():
         r = requests.get(
             'http://0.0.0.0:5000/students')
     except requests.exceptions.ConnectionError:
-        r.status_code = "Connection refused"
+        print("Not working! again!!!")
 
     if request.args.get("status")=="failure":
         msg="L'opération a échoué, vérifiez vos données et réessayez!"
