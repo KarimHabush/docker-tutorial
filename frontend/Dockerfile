@@ -9,7 +9,7 @@ RUN pip install -r requirements.txt
 
 COPY templates /templates
 
-COPY static/stylesheets /
+COPY static/stylesheets /static/stylesheets
 
 COPY app.py /
 CMD python app.py
