@@ -7,7 +7,8 @@ app = Flask(__name__, template_folder='.')
 def homepage():
     msg=""
     r = requests.get(
-        'http://localhost:5000/students')
+        'http://0.0.0.0:5000/students')
+    print(r.json())
     if request.args.get("status")=="failure":
         msg="L'opération a échoué, vérifiez vos données et réessayez!"
     elif request.args.get("status")=="success":
