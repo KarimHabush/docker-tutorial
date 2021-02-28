@@ -6,15 +6,15 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     msg=""
-#     r = requests.get(
-#         'http://0.0.0.0:5000/students')
-#     print(r.json())
-#     if request.args.get("status")=="failure":
-#         msg="L'opération a échoué, vérifiez vos données et réessayez!"
-#     elif request.args.get("status")=="success":
-#         msg="L'opération a bien été executé!"
-#     return render_template('./templates/index.html',students=r.json()['result'],messages=msg)
-    return render_template('./templates/index.html',students=[])
+    r = requests.get(
+        'http://0.0.0.0:5000/students')
+    print(r.json())
+    if request.args.get("status")=="failure":
+        msg="L'opération a échoué, vérifiez vos données et réessayez!"
+    elif request.args.get("status")=="success":
+        msg="L'opération a bien été executé!"
+    return render_template('./templates/index.html',students=r.json()['result'],messages=msg)
+   
 
 @app.route('/delete',methods=['POST'])
 def delete():
