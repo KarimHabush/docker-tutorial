@@ -2,7 +2,7 @@ from flask import Flask, render_template, request,redirect, url_for
 import requests
 import json
 
-app = Flask(__name__, template_folder='.')
+app = Flask(__name__)
 @app.route('/')
 def homepage():
     msg=""
