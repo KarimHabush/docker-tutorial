@@ -18,7 +18,7 @@ def homepage():
         msg="L'opération a échoué, vérifiez vos données et réessayez!"
     elif request.args.get("status")=="success":
         msg="L'opération a bien été executé!"
-    return render_template('./templates/index.html',students=students,messages=msg)
+    return render_template('index.html',students=students,messages=msg)
    
 
 @app.route('/delete',methods=['POST'])
