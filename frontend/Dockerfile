@@ -7,7 +7,8 @@ WORKDIR /
 COPY requirements.txt /
 RUN pip install -r requirements.txt
 
-ADD templates /
+COPY templates /templates
+
 COPY static/stylesheets /
 
 COPY app.py /
